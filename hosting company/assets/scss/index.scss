@@ -1,0 +1,226 @@
+@use '_reset.scss';
+@use '_fonts.scss';
+//colors
+$dark-red:#B00000;
+$white: #ffffff;
+$black: #000000;
+$dark-grey: #808080;
+$light-grey: #D6D4D4;
+$text-color:#2E2E2E;
+// vertical spaceing
+$small-space:8rem;
+$medium-space:10.5rem;
+$big-spave:13.3rem;
+
+
+img{
+    max-width: 100%;
+}
+:root{
+    scroll-behavior: smooth;
+    font-size: 10px;
+    font-family: fonts.$font-poppins;
+
+}
+body{
+    background-color: $white;
+    scroll-behavior: smooth;
+    font-size: 10px;
+    font-family: fonts.$font-poppins;
+}
+.main-wraper{
+    padding: 0 5.2%;
+    margin: 0 auto;
+    
+    a{
+        text-decoration: none;
+        color: $black;
+    }
+
+}
+
+.navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4rem;
+    font-size: 1.6rem;
+    padding-bottom: 9.7rem;
+    &__left{
+        display: flex;
+        align-items: center;
+        gap: 7rem;
+       
+    }
+    a:not(.navigation__logo){
+        position: relative;
+        line-height: 2.25rem;
+        font-weight: fonts.$fw-semibold;
+
+        &:hover{
+            &::after{
+                content: '';
+                width: 75%;
+                border-bottom: 3px solid $dark-red;
+                border-radius: 10px;
+                position: absolute;
+                bottom: -5px;
+                left: 12.5%;
+                right: 12.5%;
+
+            }    
+        }
+    }
+    &__list{
+        display: flex;
+        gap: 3.3rem;
+    }
+    &__right{
+        display: flex;
+        gap: 3rem;
+       a:last-child{
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding-left: 3rem;
+            border-left:1px solid $dark-grey ;
+            &::after{
+                display: none;
+            }
+        }
+    }
+
+}
+.main-banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5.5rem;
+    padding:0 8% 7.9rem 8%;
+    &__info{
+        width: 60.8rem;
+
+    }
+    &__title{
+        font-family: fonts.$font-poppins;
+        font-weight: 700;
+        font-size: 6.4rem;
+        line-height: 7.8rem;
+        color: $text-color;
+    }
+    &__desc{
+        font-family: fonts.$font-inter;
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 2.8rem;
+        color: $dark-grey;
+        margin: 3.5rem 0 6rem 0;
+    }
+    &__btn{
+        font-family: fonts.$font-poppins;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 2.6rem;
+        color: $black;
+        padding: 1rem 1rem;
+        border: 1px solid $black;
+        border-radius: 8px;
+        background-color: $white;
+    }
+    .red-btn{
+        @extend.main-banner__btn;
+        color: $white;
+        background-color: $dark-red;
+        border: none;
+        box-shadow: 0px 0px 64px rgba(176, 0, 0, 0.3);
+        margin-right: 3rem;
+    }
+    &__img-wrapper{
+        position: relative;
+        &__triangle1{
+            width: 0;
+            height: 0;
+            border: 0 solid transparent;
+            border-right-width: 40px;
+            border-left-width: 0px;
+            border-bottom: 40px solid $dark-red;
+            position: absolute;
+            bottom: 32%;
+            right: 97%;
+        }
+        &__triangle2{
+            width: 0;
+            height: 0;
+            border: 0 solid transparent;
+            border-right-width: 0px;
+            border-left-width: 40px;
+            border-bottom: 40px solid $dark-red;
+            position: absolute;
+            top: 12.5%;
+            left: 97%;
+        }
+        &__triangle3{
+            @extend.main-banner__img-wrapper__triangle2;
+            transform: scale(1.8);
+            top: 77.5%;
+            left: 93%;
+        }
+    }
+
+
+}
+.second-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+
+    &__content{
+        display: flex;
+        width: 100%;
+        gap: 17.3rem;
+        justify-content: space-around;
+    }
+    &__title{
+        font-weight: 800;
+        font-size: 4.8rem;
+        line-height: 6.4rem;
+        color: #18191F;
+    }
+    &__text{
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 1.8rem;
+        line-height: 3.2rem;
+        color: #18191F;
+    }
+    &__desc{    
+        width: 41%;
+    }
+    &__logo-container{
+        display: flex;
+        flex-direction: column;
+        gap: 5.5rem;
+        div{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 11rem;
+        }
+    }
+}
+
+// Responisve
+
+@media screen and (max-width:1200px) {
+    .main-banner , .second-wrapper , .second-wrapper__content{
+        flex-direction: column;
+        align-items: center;
+        padding: 10% 0;
+        &__desc{
+            width: 80%;
+            text-align: center;
+        }
+    }
+
+
+    
+}
